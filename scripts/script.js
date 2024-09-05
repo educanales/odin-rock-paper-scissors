@@ -6,16 +6,18 @@ let result = a.localeCompare(b, undefined, { sensitivity: 'accent' });
 
 console.log(result)
 */
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let randomChoice = Math.floor(Math.random() * 3 + 1);
-  let comChoice = '';
+  let computerChoice = '';
   if (randomChoice === 1) {
-    comChoice = 'rock';
+    computerChoice = 'rock';
   } else if (randomChoice === 2) {
-    comChoice = 'paper';
+    computerChoice = 'paper';
   } else {
-    comChoice = 'scissors'
+    computerChoice = 'scissors'
   }
   return comChoice;
   // console.log(comChoice)
