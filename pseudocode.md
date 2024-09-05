@@ -14,3 +14,6 @@ Funcion playRound(humanChoice, computerChoice)
   Log el ganador
   Incrementar el puntaje del ganador
 
+Funcion playGame()
+  For 5 veces
+    playRound
