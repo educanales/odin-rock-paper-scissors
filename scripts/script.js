@@ -2,7 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  let randomChoice = Math.floor(Math.random() * 3 + 1);
+  let randomChoice = Math.floor(Math.random() * 3 + 1);   
   let computerChoice = '';
   if (randomChoice === 1) {
     computerChoice = 'rock';
