@@ -9,6 +9,7 @@ const scissorsBtn = document.querySelector('#scissors');
 function getComputerChoice() {
   let randomChoice = Math.floor(Math.random() * 3 + 1);   
   let computerChoice = '';
+  const comSelection = document.querySelector('.com-selection');
   if (randomChoice === 1) {
     computerChoice = 'rock';
   } else if (randomChoice === 2) {
@@ -16,18 +17,21 @@ function getComputerChoice() {
   } else {
     computerChoice = 'scissors'
   }
-  console.log(computerChoice)
+  console.log(computerChoice);
+  comSelection.textContent = (`COM choose: ${computerChoice}`);
   return computerChoice;
 }
 
 function getHumanChoice(selection) {
   let humanChoice = selection;
+  const playerSelection = document.querySelector('.player-selection');
   console.log(humanChoice);
+  playerSelection.textContent = (`Player choose: ${humanChoice}`);
   return humanChoice;
 }
 
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
+  // humanChoice = humanChoice.toLowerCase();
   switch (true) {
     case humanChoice === computerChoice:
       console.log('Empate');
@@ -65,11 +69,14 @@ const buttons = document.querySelectorAll('.btn');
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    getHumanChoice(button.id);
+    playRound(getHumanChoice(button.id), getComputerChoice());
+    // playGame();
   });
 })
 
 
+
+/*
 function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
@@ -84,8 +91,4 @@ function playGame() {
         playRound();
       }
 }
-
-// playGame();
-/*
-
 */
