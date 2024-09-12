@@ -51,8 +51,8 @@ function getHumanChoice(selection) {
 function playRound(humanChoice, computerChoice) {  
   switch (true) {
     case humanChoice === computerChoice:
-      roundResult.textContent = 'Empate';
-      roundWinner.textContent = '';
+      roundResult.textContent = 'No round winner';
+      roundWinner.textContent = "It's a tie";
       break;
     case humanChoice === 'rock' && computerChoice === 'scissors':
       humanScore++;
@@ -88,15 +88,15 @@ function playRound(humanChoice, computerChoice) {
       roundResult.textContent = 'No winner';
       roundWinner.textContent = 'You probably entered an invalid choice';
   }
-  playerScore.textContent = humanScore;
-  comScore.textContent = computerScore;
+  playerScore.textContent = `Player Score: ${humanScore}`;
+  comScore.textContent = `COM Score: ${computerScore}`;
 }
 
 resetBtn.addEventListener('click', () => {
   humanScore = 0;
   computerScore = 0;
-  playerScore.textContent = humanScore;
-  comScore.textContent = computerScore;
+  playerScore.textContent = `Player Score: ${humanScore}`;
+  comScore.textContent = `COM Score: ${computerScore}`;  
   roundResult.textContent = 'Choose your weapon';
   roundWinner.textContent = 'Best of 5 rounds wins the game';
   modal.close();
@@ -108,11 +108,11 @@ function playGame(button) {
     gameResult.textContent = 'Game Winner: Human';
     finalScore.textContent = `Human: ${humanScore} COM: ${computerScore}`;
     roundCounter = 0;
-    modal.showModal();
+    modal.show();
   } else if (roundCounter >= 5 && humanScore < computerScore) {
       gameResult.textContent = 'Game Winner: Computer';
       finalScore.textContent = `Human: ${humanScore} COM: ${computerScore}`;
       roundCounter = 0;
-      modal.showModal();
+      modal.show();
     }    
 }
