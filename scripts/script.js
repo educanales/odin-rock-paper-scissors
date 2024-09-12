@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let roundCounter = 0;
 
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
@@ -15,8 +16,9 @@ const comScore = document.querySelector('.com-score');
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    playRound(getHumanChoice(button.id), getComputerChoice());
-    // playGame();
+    // playRound(getHumanChoice(button.id), getComputerChoice());
+    roundCounter++;
+    playGame(button);
   });
 })
 
@@ -96,23 +98,30 @@ function playRound(humanChoice, computerChoice) {
   comScore.textContent = computerScore;
 }
 
+function playGame(button) {  
+  playRound(getHumanChoice(button.id), getComputerChoice());
+  if (roundCounter >= 5 && humanScore > computerScore) {
+    // console.log('Game Winner: Human');
+    roundResult.textContent = 'Game Winner: Human'
+    roundCounter = 0;
+  } else if (roundCounter >= 5 && humanScore < computerScore) {
+      // console.log('Game Winner: Computer')
+      roundResult.textContent = 'Game Winner: Computer';
+      roundCounter = 0;
+    } 
+    // else {
+    //     console.log('Desempate');
+    //     roundResult.textContent = 'Empate'
+    //     playRound(getHumanChoice(button.id), getComputerChoice());
+    //   }
+}
+
+
+
 /*
-function playGame() {  
-  for (let i = 0; i < 5; i++) {
-    // playRound(getHumanChoice(), getComputerChoice());
+for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(button.id), getComputerChoice());
     console.log(`Human Score: ${humanScore} Computer Score: ${computerScore}`);
     
   }
-  if (humanScore > computerScore) {
-    console.log('Game Winner: Human');
-    roundResult.textContent = 'Game Winner: Human'
-  } else if (humanScore < computerScore) {
-      console.log('Game Winner: Computer')
-      roundResult.textContent = 'Game Winner: Computer';
-    } else {
-        console.log('Desempate');
-        roundResult.textContent = 'Empate'
-        // playRound();
-      }
-}
 */
