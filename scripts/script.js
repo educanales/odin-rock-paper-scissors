@@ -76,7 +76,7 @@ function playRound(humanChoice, computerChoice) {
       break;
     case humanChoice === 'scissors' && computerChoice === 'paper':
       humanScore++;
-      roundResult.textContent = 'Rounde Winner: Human';
+      roundResult.textContent = 'Round Winner: Human';
       roundWinner.textContent = 'Scissors beats Paper';
       break;
     case humanChoice === 'scissors' && computerChoice === 'rock':
